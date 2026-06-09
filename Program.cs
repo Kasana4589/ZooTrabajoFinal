@@ -131,6 +131,18 @@ new Anfibio(
             PresentarAnimal(animal);
         }
 
+        // Funciones agregadas para modificar y eliminar registros.
+        ModificarAnimal(zoologico);
+
+        EliminarAnimal(zoologico);
+
+        Console.WriteLine("\nLista actualizada:\n");
+
+        foreach (Animal animal in zoologico)
+        {
+            PresentarAnimal(animal);
+        }
+
         Console.WriteLine("Fin del recorrido por el zoológico.");
     }
 
@@ -143,5 +155,71 @@ new Anfibio(
         Console.WriteLine($"Sonido: {animal.HacerSonido()}");
 
         Console.WriteLine("---------------------------------\n");
+
     }
+   
+    // Busca un animal y actualiza sus datos.
+
+    static void ModificarAnimal(List<Animal> zoologico)
+    {
+        Console.Write("Ingrese el nombre del animal a modificar: ");
+        string nombreBuscado = Console.ReadLine();
+
+        foreach (Animal animal in zoologico)
+        {
+            if (animal.Nombre == nombreBuscado)
+            {
+                Console.Write("Nuevo nombre: ");
+                string nuevoNombre = Console.ReadLine();
+
+                Console.Write("Nueva edad: ");
+                int nuevaEdad = int.Parse(Console.ReadLine());
+
+                Console.Write("Nueva especie: ");
+                string nuevaEspecie = Console.ReadLine();
+
+                animal.ModificarDatos(
+                    nuevoNombre,
+                    nuevaEdad,
+                    nuevaEspecie
+                );
+
+                Console.WriteLine("Datos actualizados correctamente.");
+                return;
+            }
+        }
+
+        Console.WriteLine("No se encontró el animal.");
+    }
+    // Busca un animal por nombre y lo elimina de la lista.
+    static void EliminarAnimal(List<Animal> zoologico)
+    {
+        Console.Write("Ingrese el nombre del animal a eliminar: ");
+        string nombreBuscado = Console.ReadLine();
+
+        Animal animalEliminar = null;
+
+        foreach (Animal animal in zoologico)
+        {
+            if (animal.Nombre == nombreBuscado)
+            {
+                animalEliminar = animal;
+                break;
+            }
+        }
+
+        if (animalEliminar != null)
+        {
+            zoologico.Remove(animalEliminar);
+
+            Console.WriteLine("Animal eliminado correctamente.");
+        }
+        else
+        {
+            Console.WriteLine("No se encontró el animal.");
+        }
+    }
+    //Registrar Datos
+   
+
 }
