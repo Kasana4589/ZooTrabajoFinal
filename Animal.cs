@@ -14,7 +14,7 @@
     public string? Nombre
     {
         get { return _nombre; }
-        private set
+         set
         {
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentException("El nombre no puede estar vacío.");
@@ -26,7 +26,7 @@
     public int Edad
     {
         get { return _edad; }
-        private set
+        set
         {
             if (value < 0)
                 throw new ArgumentException("La edad no puede ser negativa.");
@@ -38,7 +38,7 @@
     public string? Especie
     {
         get { return _especie; }
-        private set
+        set
         {
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentException("La especie no puede estar vacía.");
@@ -56,14 +56,13 @@
         Especie = especie;
     }
 
-    public virtual void MostrarInformacion()
+    public virtual string? ObtenerAlimentacion()
     {
-        Console.WriteLine($"Nombre: {Nombre}");
-        Console.WriteLine($"Edad: {Edad}");
-        Console.WriteLine($"Especie: {Especie}");
+        return "Consultar con un especialista";
     }
 
-    public abstract string HacerSonido();
+
+    public abstract string? HacerSonido();
 
 
   

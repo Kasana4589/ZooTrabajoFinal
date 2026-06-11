@@ -13,7 +13,7 @@
     public string? Nombre
         {
             get { return _nombre; }
-            private set
+            set
             {
                 if (string.IsNullOrEmpty(value)) throw new ArgumentException("El nombre de la promoción no puede estar vacío.");
                 _nombre = value;
@@ -22,7 +22,7 @@
     public double Descuento
     {
         get { return _descuento; }
-        private set
+        set
         {
             if (value < 0 || value > 100) throw new ArgumentException("El descuento debe estar entre 0 y 100.");
             _descuento = value;
