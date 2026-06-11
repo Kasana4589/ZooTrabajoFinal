@@ -56,14 +56,13 @@
         Especie = especie;
     }
 
-    public virtual void MostrarInformacion()
+    public virtual string? ObtenerAlimentacion()
     {
-        Console.WriteLine($"Nombre: {Nombre}");
-        Console.WriteLine($"Edad: {Edad}");
-        Console.WriteLine($"Especie: {Especie}");
+        return "Consultar con un especialista";
     }
 
-    public abstract string HacerSonido();
+
+    public abstract string? HacerSonido();
 
 
   
